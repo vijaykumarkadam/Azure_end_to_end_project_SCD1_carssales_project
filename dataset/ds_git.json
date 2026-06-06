@@ -1,0 +1,30 @@
+{
+	"name": "ds_git",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_git",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"file_load": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": {
+					"value": "/vijaykumarkadam/Azure_end_to_end_project_SCD1_carssales_project/refs/heads/main/rawData/@{dataset().file_load}",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
