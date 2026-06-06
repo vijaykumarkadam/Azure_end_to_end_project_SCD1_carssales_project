@@ -1,0 +1,15 @@
+{
+	"name": "ADF-for-cars-Project1",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "uksouth",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "21b5ab37-6b5a-4d3b-8088-28e77dbc4637",
+		"tenantId": "d5f329f6-e66d-4b04-b87b-e28e22ee1aaf"
+	}
+}
