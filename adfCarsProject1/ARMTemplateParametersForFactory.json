@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adfCarsProject1"
+		},
+		"ls_adls_accountKey": {
+			"value": ""
+		},
+		"ls_sql_password": {
+			"value": ""
+		},
+		"ls_adls_properties_typeProperties_url": {
+			"value": "https://stoargeforcarsproject.dfs.core.windows.net/"
+		},
+		"ls_git_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/"
+		},
+		"ls_sql_properties_typeProperties_server": {
+			"value": "carsprojectdbserver.database.windows.net"
+		},
+		"ls_sql_properties_typeProperties_database": {
+			"value": "carsprojectdb"
+		},
+		"ls_sql_properties_typeProperties_userName": {
+			"value": "admin123"
+		}
+	}
+}
