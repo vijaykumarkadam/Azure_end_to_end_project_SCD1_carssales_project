@@ -1,0 +1,53 @@
+resources:
+  jobs:
+    New_Job_2026_06_08_20_01_53:
+      name: end_to_en_pipeline
+      tasks:
+        - task_key: silver_notebook
+          notebook_task:
+            notebook_path: ../../src/silver_notebook
+            source: WORKSPACE
+        - task_key: dim_branch
+          depends_on:
+            - task_key: silver_notebook
+          notebook_task:
+            notebook_path: ../../src/dim_branch
+            base_parameters:
+              incremental_run: ${var.incremental_run}
+            source: WORKSPACE
+        - task_key: dim_date
+          depends_on:
+            - task_key: silver_notebook
+          notebook_task:
+            notebook_path: ../../src/dim_date
+            base_parameters:
+              incremental_run: ${var.incremental_run}
+            source: WORKSPACE
+        - task_key: dim_dealer
+          depends_on:
+            - task_key: silver_notebook
+          notebook_task:
+            notebook_path: ../../src/dim_dealer
+            base_parameters:
+              incremental_run: ${var.incremental_run}
+            source: WORKSPACE
+        - task_key: dim_model
+          depends_on:
+            - task_key: silver_notebook
+          notebook_task:
+            notebook_path: ../../src/dim_model
+            base_parameters:
+              incremental_run: ${var.incremental_run}
+            source: WORKSPACE
+        - task_key: fact_sales_notebook
+          depends_on:
+            - task_key: dim_branch
+            - task_key: dim_date
+            - task_key: dim_dealer
+            - task_key: dim_model
+          notebook_task:
+            notebook_path: ../../src/fact_sales_notebook
+            source: WORKSPACE
+      queue:
+        enabled: true
+      performance_target: PERFORMANCE_OPTIMIZED

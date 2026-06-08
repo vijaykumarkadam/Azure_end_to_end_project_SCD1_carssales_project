@@ -1,0 +1,4 @@
+variables:
+  incremental_run:
+    description: Initial_run and incremental run.
+    default: '0'
